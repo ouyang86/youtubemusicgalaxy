@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Galaxy Music</title>
+  <link href='style_temp.css' rel='stylesheet'>
+  <meta Content-Type: text/html; charset=utf-8>
+</head>
+
+<body>
+  <div class='page'>
+    <div class='metanav'>
+      <a href='front_temp.html'>Music Trend</a>
+    </div>
+    <h1>YouTube Galaxy Music</h1>
+    <form class='search-bar'>
+        <input class='search' type='text' placeholder="Search..." required>
+        <input class='button' type='submit' value='YouTube Search'>
+    </form>  
+    
+    <div class='exp'>
+    <p>
+    This website provides the most recent music trend
+    </p>
+    </div>
+    
+    <div class='artist-trend'>
+    <p>Top artist last week</p>
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Artist</th>
+        <th>Views Per Week</th>
+      </tr>
+      <tr>
+        <td class='rank'>1</td>
+        <td class='name'><a href='search_temp.html'>Taylor Swift</a></td>
+        <td class='trend'>110,202,453</td>
+      </tr>
+      <tr>
+        <td class='rank'>2</td>
+        <td class='name'><a href='search_temp.html'>Nursery Rhymes</a></td>
+        <td class='trend'>85,510,722</td>
+      </tr>
+      <tr>
+        <td class='rank'>3</td>
+        <td class='name'><a href='search_temp.html'>Nicki Minaj</a></td>
+        <td class='trend'>78,275,254</td>
+      </tr>
+      <tr>
+        <td class='rank'>4</td>
+        <td class='name'><a href='search_temp.html'>Bruno Mars</a></td>
+        <td class='trend'>77,18,203</td>
+      </tr>
+      <tr>
+        <td class='rank'>5</td>
+        <td class='name'><a href='search_temp.html'>Ariana Grande</a></td>
+        <td class='trend'>71,702,282</td>
+      </tr>
+    </table>
+    </div>
+    
+    <div class='track-trend'>
+    <p>Top track last week</p>
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Track</th>
+        <th>Views Last Week</th>
+      </th>
+      <tr>
+        <td class='rank'>1</td>
+        <td class='name'><a href='play_temp.html'>
+              Taylor Swift - Blank Space
+             </a>
+        </td>
+        <td class='trend'>43,378,173</td>
+      </tr>
+      <tr>
+        <td class='rank'>2</td>
+        <td class='name'><a href='play_temp.html'>
+            Bruno Mars - Uptown Funk
+            </a>
+        </td>
+        <td class='trend'>43,164,820</td>
+      </tr>
+      <tr>
+        <td class='rank'>3</td>
+        <td class='name'><a href='play_temp.html'>
+            Mark Ronson - Uptown Funk
+            </a>
+        </td>
+        <td class='trend'>42,714,362</td>
+      </tr>
+      <tr>
+        <td class='rank'>4</td>
+        <td class='name'><a href='play_temp.html'>
+            Ed Sheeran - Thinking Out Loud</a>
+        <td class='trend'>34,980,939</td>
+      </tr>
+      <tr>
+        <td class='rank'>5</td>
+        <td class='name'><a href='play_temp.html'>
+            Nursery Rhymes - Wheels On The Bus</a>
+        <td class='trend'>31,392,813</td>
+      </tr>
+    </table>
+    </div>
+    
+    <div id='footer'>
+      <p>This is the first web application by Galaxy
+    </div>
+  </div>
+</body>
+</html>

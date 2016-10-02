@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block contents %}
+  <div class="result">
+
+    <table>
+    {% if entries.query_type == "youtube" %}
+      {% for item in entries.search_list %}
+        <tr class="search-row">
+          <td class="video-pic">
+          <a href="{{ url_for('watch', video_id= item.video_id) }}">
+            <img src="https://i.ytimg.com/vi/{{ item.video_id }}/mqdefault.jpg"
+                 alt="Not Avaliable">
+          </a>
+          </td>
+          <td class="video-des">
+          <a href="{{ url_for('watch', video_id= item.video_id) }}"><p>{{ item.title }}</p>
+          </a>
+          </td>
+        </tr>
+      {% endfor %}
+    {% else %}
+      {% for item in entries.search_list %}
+        <tr class="search-row">
+          <td class="video-pic">
+          <a href="{{ url_for('watch', video_id=item.video_id) }}">
+            <img src="https://i.ytimg.com/vi/{{ item.video_id }}/mqdefault.jpg"
+                 alt="Not Avaliable">
+          </a>
+          </td>
+          <td class="video-des">
+          <a href="{{ url_for('watch', video_id= item.video_id) }}">
+          <p>{{ item.song }}</p>
+          </a>
+          <p>By</p>
+          <p>{{ item.artist }}</p>
+          <p>{{ item.trend }} views last week</p>
+          </td>
+        </tr>
+      {% endfor %}
+    {% endif %}
+    </table>
+  </div>
+{% endblock %}

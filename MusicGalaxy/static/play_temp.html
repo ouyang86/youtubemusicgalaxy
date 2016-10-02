@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Galaxy Music</title>
+  <link href='style_temp.css' rel='stylesheet'>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script>
+  $(document).ready(function(){
+      $(."small-title").click(function(){
+          $(this).toggle();
+      });
+  });
+  </script>
+  <meta Content-Type: text/html; charset=utf-8>
+</head>
+
+<body>
+  <div class='page'>
+    <div class='metanav'>
+      <a href='front_temp.html'>Music Trend</a>
+    </div>
+    <h1>YouTube Galaxy Music</h1>
+    <form class='search-bar'>
+        <input class='search' type='text' placeholder="Search..." required>
+        <input class='button' type='submit' value='YouTube Search'>
+    </form>  
+    
+    <div class='youtube'>
+      <iframe class='video'
+           src="http://www.youtube.com/embed/5-LHpbUPu5E?autoplay=1">
+      </iframe>
+      <p class='title'>
+      《最美和聲第2季第2期》谷微 - 海闊天空 (無雜音版) 
+      </p>
+    </div>
+    
+    
+    <div class='recommend'>
+      <h2>Related artists and tracks order by views last week</h2>
+      <p class='small-title'>This music has also been performed by:</p>
+      <table>
+      <tr>
+        <td class='name'><a href='search_temp.html'>Taylor Swift</a></td>
+        <td class='trend'>110,202,453</td>
+      </tr>
+      <tr>
+        <td class='name'><a href='search_temp.html'>Nursery Rhymes</a></td>
+        <td class='trend'>85,510,722</td>
+      </tr>
+      <tr>
+        <td class='name'><a href='search_temp.html'>Nicki Minaj</a></td>
+        <td class='trend'>78,275,254</td>
+      </tr>
+      </table>
+      <p class='small-title' id="tt" onclick="color('tt')">Top tracks of artist in this music:</p>
+      <ul>
+        <li class='name'>
+          <p onclick="show_table('test')">Taylor Swift Click me!</p>
+          <a href='search_temp.html'>Taylor Swift</a>
+          <table style="display:none" id="test">
+            <tr>
+              <td class='name'><a href='play_temp.html'>Blank Space</a></td>
+              <td class='trend'>43,378,173</td>
+            </tr>
+            <tr>
+              <td class='name'><a href='play_temp.html'>Shake It Off</a></td>
+              <td class='trend'>29,535,400</td>
+            </tr>
+            <tr>
+              <td class='name'><a href='play_temp.html'>I Knew You Were Trouble</a></td>
+              <td class='trend'>3,881,440</td>
+            </tr>
+          </table>
+        </li>
+        <li class='name'>
+          <a href='search_temp.html'>Selena Gomez</a>
+          <table>
+            <tr>
+              <td class='name'><a href='play_temp.html'>The Heart Wants What It Wants</a></td>
+              <td class='trend'>10,542,073</td>
+            </tr>
+            <tr>
+              <td class='name'><a href='play_temp.html'>Come & Get It</a></td>
+              <td class='trend'>2,375,574</td>
+            </tr>
+            <tr>
+              <td class='name'><a href='play_temp.html'>Love You Like A Love Song</a></td>
+              <td class='trend'>1,466,197</td>
+            </tr>
+          </table>
+        </li>
+      </ul>
+    </div>
+    
+    <div id='footer'>
+      <p>This is the first web application by Galaxy
+    </div>
+  </div>
+  
+</body>
+</html>

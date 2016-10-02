@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block contents %}
+    
+  <div id="trend-containor">
+    <div id="trend-title">
+      <h2>Weekly Music Top 100</h2>
+    </div>
+    
+    <div id="trend-nav">
+      <ul>
+        <li>Artist</li>
+        <li id="default-menu">Song</li>
+      </ul>
+    </div>
+    
+    <div id="artist-trend" style="display:none">
+      {% for row in entries.artist %}
+        <div class="trend-row">
+          <div class="rank">{{ loop.index }}</div>
+          <div class="artist-name">
+            <a href="{{ url_for('search', query_type='artist', query=row.artist_name, count=50) }}">
+            {{ row.artist_name }}</a>
+          </div>
+          <div class="trend"><p>{{ row.trend }} views</p>
+            <p>last week</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+    
+    <div id='track-trend'>
+      {% for row in entries.track %}
+        <div class="trend-row">
+          <div class="rank">{{ loop.index }}</div>
+          <div class="v-image">
+            <a href="{{ url_for('watch', video_id=row.video_id) }}">
+              <img src="https://i.ytimg.com/vi/{{ row.video_id }}/default.jpg"
+                 alt="No Picture">
+              </a>
+          </div>
+          <div class="track-name">
+            <a href="{{ url_for('watch', video_id=row.video_id) }}"
+               target="_blank">
+              {{ row.song_set|join(' | ') }}</a>
+            <p>By {{ row.artist_set|join(' | ') }}</p>
+          </div>
+          <div class="view-count">{{ row.trend }} views last week</div>
+        </div>
+      {% endfor %}
+    </div> 
+  </div>
+{% endblock %}
+
+

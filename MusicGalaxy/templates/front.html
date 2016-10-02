@@ -1,0 +1,93 @@
+{% extends "base.html" %}
+
+{% block contents %}
+  <h1 id="tour-title">A Tour Of MusicGalaxy</h1>
+  <div class="tour-block" id="preface">
+    <h2>Preface: Dilemma of YouTube Music</h2>
+    <p>No matter who you are, you can create your own music channel and have your voice to be heard by the world via YouTube. 
+       The spirit of opening and sharing has made YouTube the largest online music resource. However, this openness is a double-edged
+       sword. It makes YouTube music data not as clean and well organized as major music platforms like iTune, Pandora and Spotify. If
+       you search for 
+       "<a href="https://www.youtube.com/results?search_query=taylor+swift+blank+space" target="_blank"
+        >Blank Space</a>" of Taylor
+       Swift, many different videos of this song will show up. This duplication may affect user experience, and jeopardize the
+       quality of recommendation engine. 
+    </p> 
+  </div>
+  
+  <div class="tour-block" id="mission">
+    <h2>Mission: A Unique Music Platform</h2>
+    <p>MusicGalaxy is designed as a clean and neat music platform based on the YouTube music data universe. At the heart of
+    MusicGalaxy is a machine, trained to understand the semantic meaning of EVERY YouTube music video titles.
+    This machine learning process tranforms noisy un-structured YouTube text data into a structured music database. 
+    You can jump to the <a href="#tech">Tech View</a> for more details on the algorithms. 
+    </p>
+  </div>
+  
+  <div class="tour-block" id="billboard">
+    <h2>Billboard: YouTube Version</h2>
+    <p>Many music lovers always keep an eye on the Billboard <a href="http://www.billboard.com/charts/hot-100">Hot 100 </a>music
+     lists to follow the most recent music trend. MusicGalaxy provides a YouTube version Billboard
+     <a href="{{ url_for('show_trend') }}">Top 100</a>. At this time, there are two rank lists available: one for song track, and 
+     the other for artist across all music genre. 
+     Each rank list is ordered by the weekly music trend: the weekly cumulative view growth of all YouTube music
+      videos featuring a song or an artist. Both rank lists are made from a sample of over 2 million YouTube music videos, 
+      and updated every week.
+    </p> 
+  </div>
+  
+  <div class="tour-block" id="recommendation">
+    <h2>Music Recommendation: Opportunity For Newbie Singers</h2>
+    <p>In MusicGalaxy, you can start by choosing music from the <a href="{{ url_for('show_trend') }}">top 100</a> 
+    rank list or search for any music video you like directly.
+    For example, you can click on 
+    <a href="{{ url_for('watch', video_id='2vjPBrBU-TM') }}" target="_blank">Sia - Chandelier</a> 
+    on the top 100 rank list.
+    While this music video is loading, you may see the artist name "Sia" and song name "Chandelier" has been recognized
+    algorithmically and listed by the video window. These names are there for recommendation purpose.
+    </p>
+    <p>Two types of recommendations are provided. The first type follows the "artist to song" rule. You can click on artist name
+     Sia for other songs of her. The second type follows the "song to artist" rule. You can  <strong>click on song name 
+     "Chandelier" for different versions of this song by other artists</strong>.
+     The second type of recommendation not only gives music lovers a unique music experience, 
+     but also provides great opportunities for newbie singers. Here is why.
+    </p>
+    <p>
+     We know that newbie singers usually need to start by singing cover versions of songs of famous singers. 
+     From MusicGalaxy's recommendation, you may notice that Sia's "Chandelier" has been covered by many other singers, such as 
+     <a href="{{ url_for('watch', video_id='wksRctZJN-I') }}" target="_blank">Jean Kelley</a>
+     and <a href="{{ url_for('watch', video_id='8wBuEpZZKa0') }}" target="_blank">Jasmine Thompson</a>.
+     However, artists like Jean Kelley and Jasmine Thompson are much less well-known than Sia, and the YouTube recommendation
+      engine rarelly recommends their cover songs when you are watching Sia's "Chandelier". It usually recommends other songs by Sia.
+       MusicGalaxy's recommendation provides greater chance for the voice of newbies to be heard, and their talents to be discovered. 
+    </p>
+  </div>
+  
+  <div class="tour-block" id="tech">
+    <h2>Tech View: Named-entity Recognition</h2>
+    <p>So what is the 'magic' supporting at the backend for music service like top 100 rank and recommendation? A simple answer is 
+       a Named-entity Recognition algorithm. 
+    </p>
+    <p>As we know a YouTube video can be uploaded by anyone, with any language background. The uploader of a music video will 
+    describe the materials of the music in video title in their own way. To build a structured music database, we need to know the 
+    artist names and song names of every YouTube music video. This is the starting point of building a good music 
+    platform. Due to the huge amount of YouTube music videos, we need to train a machine to recognize artist names and song names
+    from multilingual video title text automatically. 
+    </p>
+    
+    <p>MusicGalaxy takes the state of art named-entity detection technique to perform this task. A machine is trained by hidden
+    markov model to assign tags to each word in YouTube music video titles. Those parts with tags "Artist" and "Song" are 
+    recognized as artist name and song name respectively.
+    </p>
+    <p>The most chanlleging part of the MusicGalaxy project is getting training data for the hidden markov model. Thanks to
+    Musicbrainz's open source music data, the emission probability for words in "Artist" and "Song" tags can be estimated. For the 
+    transition probability, 500 human tagged YouTube music video titles are provided for estimation. We can treat these estimation as
+    initial parameters in the hidden markov model, and use it to process the total of 2 million videos. The results can be used as the
+    new training data. Due to the big training data size, the parameters can be re-estimated, and performce may improve. This 
+    re-estimation process is repeated till the estimation becomes stable.
+    </p>
+    <p>Another chanllege is the multilingual environment of YouTube video titles. It is very common to see multiple language mixed
+    together in the same video title. A special tokenizer is designed to process multilingual text in a reasonable way. 
+    </p>
+  </div>
+{% endblock %}

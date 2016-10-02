@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+
+{% block contents %}
+    <div id="youtube">
+      <iframe id="video"
+           src="http://www.youtube.com/embed/{{ entries.video_id }}?autoplay=1">
+      </iframe>
+      <div id='video-title'>
+        <p>{{ entries.title }}</p>
+        {% if entries.trend != 'unknown' %}
+          <p>{{ entries.trend }} views lask week</p>
+        {% endif %}
+      </div>
+    </div>
+    
+    <div id="recommend">
+      <h1 id="middle-title">Machine Recognized</h1>
+      {% if entries.cat == 'no music' or entries.song|length == 0 %}
+        <h2 class="small-title">This may not be a music video</h2>
+      {% endif %}
+      
+      {% if entries.song|length > 0 %}
+        <h2 class="small-title">Songs</h2>
+      {% endif %}
+      
+      {% for song_name in entries.song %}
+        <div class="row-name">
+          <div class="table-title">
+            <p>{{ song_name }}</p>
+            <div class="explore">By Other Artists</div>
+          </div>
+          <div style="display:none" id="song_{{ loop.index }}" class="show-table-containor">           
+            <div class="explanation">
+              Last Week Views
+            </div>
+              
+            <div class="table-body">
+              {% for row in entries.song[song_name] %}
+                <div class="table-row">
+                  <div class="name">
+                    <a class="name-link" href="{{ url_for('watch', video_id=row.video_id) }}">
+                    {{ row.artist_name }}
+                    </a>
+                  </div>
+                  <div class="trend">{{ row.trend }}</div>
+                </div>
+              {% endfor %}
+            </div>
+              
+            <div class="more">
+              <a href="{{ url_for('search', query_type='song', query=song_name, count=50) }}">
+                Watch More
+              </a>
+            </div>    
+          </div>
+        </div>
+      {% endfor %}
+     
+      
+      {% if entries.artist|length > 0 %}
+        <h2 class="small-title">Artists</h2>
+      {% endif %}
+      
+      {% for artist_name in entries.artist %}
+        <div class="row-name">
+          <div class="table-title">
+            <p>{{ artist_name }}</p>
+            <div class="explore">Other Songs</div>
+          </div>
+          <div style="display:none" id="artist_{{ loop.index }}" class="show-table-containor">           
+            <div class="explanation">
+              Last Week Views
+            </div>
+              
+            <div class="table-body">
+              {% for row in entries.artist[artist_name] %}
+                <div class="table-row">
+                  <div class="name">
+                    <a class="name-link" href="{{ url_for('watch', video_id=row.video_id) }}">
+                    {{ row.song_name }}
+                    </a>
+                  </div>
+                  <div class="trend">{{ row.trend }}</div>
+                </div>
+              {% endfor %}
+            </div>
+              
+            <div class="more">
+              <a href="{{ url_for('search', query_type='artist', query=artist_name, count=50) }}">
+                Watch More
+              </a>
+            </div>    
+          </div>
+        </div>
+      {% endfor %}     
+    </div>
+    
+{% endblock %}

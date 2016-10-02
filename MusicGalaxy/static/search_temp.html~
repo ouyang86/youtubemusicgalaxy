@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>YouTube Galaxy Music</title>
+  <link href='style_temp.css' rel='stylesheet'>
+  <meta Content-Type: text/html; charset=utf-8>
+</head>
+
+<body>
+  <div class='page'>
+    <div class='metanav'>
+      <a href='front_temp.html'>Music Trend</a>
+    </div>
+    <h1>YouTube Galaxy Music</h1>
+    <form class='search-bar'>
+        <input class='search' type='text' placeholder="Search..." required>
+        <input class='button' type='submit' value='YouTube Search'>
+    </form>  
+    
+    <div class='result'>
+      <table>
+        <tr>
+          <td class='video-pic'>
+          <a href='play_temp.html'>
+            <img src='https://i.ytimg.com/vi/5-LHpbUPu5E/mqdefault.jpg'
+                 alt='Not Avaliable'>
+          </a>
+          </td>
+          <td class='video-des'>
+          <p>
+          《最美和聲第2季第2期》谷微 - 海闊天空 (無雜音版) 
+          </p>
+          </td>
+        </tr>
+        <tr>
+          <td class='video-pic'>
+          <a href='play_temp.html'>
+            <img src='https://i.ytimg.com/vi/SX4ApxGV9jw/mqdefault.jpg'
+                 alt='Not Avaliable'>
+          </a>
+          </td>
+          <td class='video-des'>
+          <p>
+            莫熙兒 - 如果回到二十歲那年
+          </p>
+          </td>
+        </tr>
+        <tr'>
+          <td style='padding:1.2em;'>
+          <a href='play_temp.html'>
+            <img src='https://i.ytimg.com/vi/dUL8AObHyuA/mqdefault.jpg'>
+          </a>
+          </td>
+          <td class='video-des'>
+          <p>
+            莫熙兒 - 愛瘋了
+          </p>
+          </td>
+        </tr>
+      </table>
+    </div>
+    
+    <div id='footer'>
+      <p>This is the first web application by Galaxy
+    </div>
+ </div>
+</body>
+</html>

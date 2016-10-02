@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>MusicGalaxy</title>
+  <link href="{{ url_for('static', filename='style_temp.css') }}" rel="stylesheet">
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+  <script src="{{ url_for('static', filename='temp.js') }}"></script>
+  <meta Content-Type: text/html; charset=utf-8>
+</head>
+
+<body>
+    <div id='metanav'>
+      <div id="containor">
+        <a id="logo" href="{{ url_for('front_page') }}">MusicGalaxy</a>
+        
+        <form class="search-bar" action="{{ url_for('search', query_type='youtube', query='temp', count=50) }}"
+              method="GET">
+          <input class="search" type='text' placeholder="Search YouTube Music..." 
+                 name="query" required>
+          <input class="button" type="submit" value="Search">
+        </form>
+        
+        <a id="info" href="{{ url_for('front_page') }}#tech">Algorithm</a>
+        <a id="trend" href="{{ url_for('show_trend') }}">Top100</a>
+        <div class="clear"></div>  
+      </div>
+    </div>
+    
+    
+    {% block contents %}
+    {% endblock %}
+    
+    <div id='footer'>
+      <p>This is the first web application by Galaxy
+    </div>
+  
+</body>
+</html>
+  
